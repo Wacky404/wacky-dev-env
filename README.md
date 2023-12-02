@@ -12,6 +12,6 @@
 > - markdown preview; for readme and notetaking
 
 🛑 If you want to see my keybindings and current color scheme 🛑
-> [keymaps.lua](keymaps.lua)
+> navigate to keymaps.lua
 > 
-> [colorscheme.lua](colorscheme.lua)
+> navigate to colorscheme.lua
