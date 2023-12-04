@@ -32,7 +32,6 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"lua_ls",
 		"clangd",
-		"cmake",
 		"arduino_language_server",
 		"ltex",
 		"jedi_language_server",
@@ -46,8 +45,8 @@ mason_null_ls.setup({
 	ensure_installed = {
 		"black", -- python code formatter
 		"stylua", -- lua formatter
-		"clang-format", -- cpp formatter
 		"cpplint", -- cpp linter
+		"codespell", -- spellings linter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

@@ -15,12 +15,8 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
-		-- might install pyre as linter
-		-- turned off cpplint
 		formatting.black, -- python formatter
 		formatting.stylua, -- lua formatter
-		formatting.clang_format, -- cpp formatter
-		diagnostics.pyre, -- python linter
 		diagnostics.cpplint, -- cpp linter
 	},
 

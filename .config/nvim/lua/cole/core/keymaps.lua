@@ -27,7 +27,7 @@ keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & heig
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
 -- terminal
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
 -- toggle-terminal
 keymap.set("n", "<leader>tt", ":ToggleTerm dir=git_dir<CR>")
