@@ -6,7 +6,7 @@
 ### My Essentials: 
 > - treesh*tter
 > - telescope
-> - lsp
+> - lsp, linting, formatting
 > - autocompletion
 > - terminal integration (.zsh btw)
 > - markdown preview; for readme and notetaking
