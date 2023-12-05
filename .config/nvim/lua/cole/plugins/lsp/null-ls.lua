@@ -16,8 +16,10 @@ null_ls.setup({
 	-- setup formatters & linters
 	sources = {
 		formatting.black, -- python formatter
+		diagnostics.pylint, -- python linter
 		formatting.stylua, -- lua formatter
 		diagnostics.cpplint, -- cpp linter
+		diagnostics.codespell, -- spell check linter
 	},
 
 	-- configure format on save

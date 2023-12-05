@@ -44,6 +44,7 @@ mason_null_ls.setup({
 	-- list of formatters & linters & adapters for mason to install
 	ensure_installed = {
 		"black", -- python code formatter
+        "pylint", -- python linter
 		"stylua", -- lua formatter
 		"cpplint", -- cpp linter
 		"codespell", -- spellings linter
