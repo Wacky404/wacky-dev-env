@@ -108,9 +108,9 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters and linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason and null-ls
+    -- nvim-lint and nvim-formatter
+    use({"mfussenegger/nvim-lint"})
+    use({"sbdchd/neoformat"})
 
 	-- toggle terminal
 	use({
@@ -122,16 +122,10 @@ return packer.startup(function(use)
 				direction = "horizontal",
 				autochdir = false,
 			})
-		end,
-	})
-	-- install without yarn or npm
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
+	end,
 	})
 
+    -- Markdown Preview
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
