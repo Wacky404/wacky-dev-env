@@ -13,7 +13,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -33,8 +33,11 @@ return packer.startup(function(use)
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
+	-- transparent background
+	use("xiyaowong/transparent.nvim")
+
 	-- Color Scheme is here!!!
-	use("AlexvZyl/nordic.nvim") -- preferred colorscheme
+	use("folke/tokyonight.nvim") -- preferred colorscheme
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -108,9 +111,8 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-    -- nvim-lint and nvim-formatter
-    use({"mfussenegger/nvim-lint"})
-    use({"sbdchd/neoformat"})
+	-- nvim-formatter
+	require("packer").use({ "mhartington/formatter.nvim" })
 
 	-- toggle terminal
 	use({
@@ -122,10 +124,10 @@ return packer.startup(function(use)
 				direction = "horizontal",
 				autochdir = false,
 			})
-	end,
+		end,
 	})
 
-    -- Markdown Preview
+	-- Markdown Preview
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",

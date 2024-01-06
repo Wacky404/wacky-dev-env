@@ -22,6 +22,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- go to declaration
 	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
+	keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) -- see variable in hover
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
@@ -43,33 +44,14 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure cpp server
-lspconfig["clangd"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	cmd = {
-		"clangd",
-		"--offset-encoding=utf-16",
-	},
-})
+local servers = { "clangd", "arduino_language_server", "ltex", "jedi_language_server" }
 
--- configure arduino server
-lspconfig["arduino_language_server"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure latex language server
-lspconfig["ltex"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure python server
-lspconfig["jedi_language_server"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+for _, lsp in pairs(servers) do
+	require("lspconfig")[lsp].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+end
 
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({
