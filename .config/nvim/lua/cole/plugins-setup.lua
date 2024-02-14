@@ -137,6 +137,9 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 
+	-- vimtex for LaTeX files
+	use("lervag/vimtex")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
