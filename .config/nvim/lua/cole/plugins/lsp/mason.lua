@@ -10,7 +10,6 @@ if not mason_lspconfig_status then
 	return
 end
 
-
 -- enable mason and configure icons
 mason.setup({
 	ui = {
@@ -30,9 +29,10 @@ mason_lspconfig.setup({
 		"arduino_language_server",
 		"ltex",
 		"jedi_language_server",
+		"html",
+		"tailwindcss",
+		"biome",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
 })
-
-

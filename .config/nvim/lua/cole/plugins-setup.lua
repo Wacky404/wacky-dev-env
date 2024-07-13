@@ -37,7 +37,7 @@ return packer.startup(function(use)
 	use("xiyaowong/transparent.nvim")
 
 	-- Color Scheme is here!!!
-	use("folke/tokyonight.nvim") -- preferred colorscheme
+	use({ "uloco/bluloco.nvim", requires = { "rktjmp/lush.nvim" } }) -- preferred colorscheme atm
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -79,6 +79,7 @@ return packer.startup(function(use)
 	-- managing & installing lsp servers, linters & formatters
 	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
 	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+	use("mfussenegger/nvim-lint") -- installed because of mypy linter
 
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers

@@ -44,7 +44,13 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-local servers = { "clangd", "arduino_language_server", "ltex", "jedi_language_server" }
+local servers = {
+	"clangd",
+	"arduino_language_server",
+	"ltex",
+	"jedi_language_server",
+	"biome",
+}
 
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({

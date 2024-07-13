@@ -15,6 +15,7 @@ require("formatter").setup({
 		c = { require("formatter.filetypes.cpp").clangformat },
 		latex = { require("formatter.filetypes.latex").latexindent },
 		markdown = { require("formatter.filetypes.markdown").prettier },
+		html = { require("formatter.filetypes.html").prettier },
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
 		lua = {
