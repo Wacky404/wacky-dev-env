@@ -105,6 +105,26 @@ return packer.startup(function(use)
 		end,
 	})
 
+    -- dadbod for Databases
+    use({
+        "kristijanhusak/vim-dadbod-ui",
+        requires = { 'tpope/vim-dadbod' },
+        dependencies = {
+            { 'kristijanhusak/vim-dadbod-completion',
+                ft = { 'sql' },
+                cmd = {
+                    'DBUI',
+                    'DBUIToggle',
+                    'DBUIAddConnection',
+                    'DBUIFindBuffer',
+                },
+                config = function()
+                    -- place my small config changes here
+                    vim.g.db_ui_use_nerd_fonts = 1
+                end,
+        } },
+    })
+
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
