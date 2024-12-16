@@ -50,6 +50,7 @@ local servers = {
 	"ltex",
 	"jedi_language_server",
 	"biome",
+	"metals",
 }
 
 for _, lsp in pairs(servers) do
@@ -58,6 +59,9 @@ for _, lsp in pairs(servers) do
 		on_attach = on_attach,
 	})
 end
+
+-- configure metals server with defaults
+lspconfig["metals"].setup({})
 
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({

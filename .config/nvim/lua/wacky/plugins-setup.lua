@@ -105,25 +105,27 @@ return packer.startup(function(use)
 		end,
 	})
 
-    -- dadbod for Databases
-    use({
-        "kristijanhusak/vim-dadbod-ui",
-        requires = { 'tpope/vim-dadbod' },
-        dependencies = {
-            { 'kristijanhusak/vim-dadbod-completion',
-                ft = { 'sql' },
-                cmd = {
-                    'DBUI',
-                    'DBUIToggle',
-                    'DBUIAddConnection',
-                    'DBUIFindBuffer',
-                },
-                config = function()
-                    -- place my small config changes here
-                    vim.g.db_ui_use_nerd_fonts = 1
-                end,
-        } },
-    })
+	-- dadbod for Databases
+	use({
+		"kristijanhusak/vim-dadbod-ui",
+		requires = { "tpope/vim-dadbod" },
+		dependencies = {
+			{
+				"kristijanhusak/vim-dadbod-completion",
+				ft = { "sql" },
+				cmd = {
+					"DBUI",
+					"DBUIToggle",
+					"DBUIAddConnection",
+					"DBUIFindBuffer",
+				},
+				config = function()
+					-- place my small config changes here
+					vim.g.db_ui_use_nerd_fonts = 1
+				end,
+			},
+		},
+	})
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
@@ -161,6 +163,14 @@ return packer.startup(function(use)
 	-- vimtex for LaTeX files
 	use("lervag/vimtex")
 
+	-- dap and dapui
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
+	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end

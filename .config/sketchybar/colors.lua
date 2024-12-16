@@ -13,6 +13,7 @@ return {
 	magenta = 0xffb39df3,
 	grey = 0xff7f8490,
 	pink = 0xffffc0cb,
+	purple = 0xff8a00c2,
 	transparent = 0x00000000,
 
 	bar = {

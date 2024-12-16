@@ -1,0 +1,54 @@
+{
+    "savepath": "Documents/GitHub/worklogger/Output/",
+    "backuppath": "Documents/worklogger/",
+    "fileformat": "csv",
+    "loglvl": "Warning",
+    "jobs": [
+        {
+            "name": "great company",
+            "projects": [
+                {
+                    "proj 1": "null",
+                    "proj 2": "0987654321",
+                    "proj 3": "1234567890"
+                }
+            ]
+        },
+        {
+            "name": "not so great company",
+            "projects": [
+                {
+                    "codename: secrete": "404",
+                    "govwork": "902753203",
+                    "exemplary": "9023hdalw903"
+                }
+            ]
+        },
+        {
+            "name": "UASYS",
+            "projects": [
+                {
+                    "General": "anything",
+                    "EI": "Educational Institution"
+                }
+            ]
+        },
+        {
+            "name": "Paces",
+            "projects": [
+                {
+                    "Interconnection": "InterConnection Queue"
+                }
+            ]
+        },
+        {
+            "name": "EPRI",
+            "projects": [
+                {
+                    "GridFast": "12345",
+                    "Exemplar": "12345"
+                }
+            ]
+        }
+    ]
+}

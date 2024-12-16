@@ -26,6 +26,9 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
+-- open diagnostics
+keymap.set("n", "<leader>da", ":lua vim.diagnostic.open_float()<CR>") -- open diagnostic
+
 -- terminal
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
@@ -66,11 +69,11 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 -- DAP : basic commands
 --------------------------
---keymap.set("n", "<leader>con", ":lua require('dap').continue()<CR>") -- continue the debugger
---keymap.set("n", "<leader>so", ":lua require('dap').step_over()<CR>") -- step over a line
---keymap.set("n", "<leader>si", ":lua require('dap').step_into()<CR>") -- step into a line
---keymap.set("n", "<leader>ol", ":lua require('dap').step_out()<CR>") -- step out of a line
---keymap.set("n", "<leader>tb", ":lua require'dap'.toggle_breakpoint()<CR>)") -- toggle a breakpoint for debugger
---keymap.set("n", "<leader>b", ":lua require('dap').set_breakpoint()<CR>") -- make a breakpoint at a line
---keymap.set("n", "<leader>rl", ":lua require('dap').run_last()<CR>") -- run the last action
+keymap.set("n", "<leader>con", ":lua require('dap').continue()<CR>") -- continue the debugger
+keymap.set("n", "<leader>so", ":lua require('dap').step_over()<CR>") -- step over a line
+keymap.set("n", "<leader>si", ":lua require('dap').step_into()<CR>") -- step into a line
+keymap.set("n", "<leader>ol", ":lua require('dap').step_out()<CR>") -- step out of a line
+keymap.set("n", "<leader>tb", ":lua require'dap'.toggle_breakpoint()<CR>)") -- toggle a breakpoint for debugger
+keymap.set("n", "<leader>b", ":lua require('dap').set_breakpoint()<CR>") -- make a breakpoint at a line
+keymap.set("n", "<leader>rl", ":lua require('dap').run_last()<CR>") -- run the last action
 --------------------------

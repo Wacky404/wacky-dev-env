@@ -5,8 +5,8 @@ return {
 	-- battery widget
 	batt_background = colors.black,
 	batt_color_default = colors.green,
-	batt_color_25 = colors.cog_blue,
-	batt_color_0 = colors.orange,
+	batt_color_25 = colors.purple,
+	batt_color_0 = colors.pink,
 	-- cpu widget
 	cpu_background = colors.black,
 	-- volume widget
