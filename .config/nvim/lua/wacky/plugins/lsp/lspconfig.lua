@@ -49,8 +49,10 @@ local servers = {
 	"arduino_language_server",
 	"ltex",
 	"jedi_language_server",
-	"biome",
+	"ts_ls",
+	"tailwindcss",
 	"metals",
+	"htmx",
 }
 
 for _, lsp in pairs(servers) do
@@ -62,6 +64,26 @@ end
 
 -- configure metals server with defaults
 lspconfig["metals"].setup({})
+
+-- configure html server to attach on typescriptreact, javascriptreact
+lspconfig["html"].setup({
+	filetypes = { "html", "typescriptreact", "javascriptreact" },
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure go server; additional settings
+lspconfig["gopls"].setup({
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
+			gofumpt = true,
+		},
+	},
+})
 
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({

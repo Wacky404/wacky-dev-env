@@ -28,6 +28,10 @@ treesitter.setup({
 		"lua",
 		"vim",
 		"gitignore",
+		"html",
+		"javascript",
+		"typescript",
+		"tsx",
 	},
 	-- auto install above language parsers
 	auto_install = true,

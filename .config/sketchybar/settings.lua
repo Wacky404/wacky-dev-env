@@ -5,8 +5,8 @@ return {
 	-- battery widget
 	batt_background = colors.black,
 	batt_color_default = colors.green,
-	batt_color_25 = colors.purple,
-	batt_color_0 = colors.pink,
+	batt_color_25 = colors.orange_brown,
+	batt_color_0 = colors.grey,
 	-- cpu widget
 	cpu_background = colors.black,
 	-- volume widget
@@ -21,7 +21,7 @@ return {
 	calendar_background = colors.black,
 	calendar_border = colors.black,
 	-- spaces.lua
-	spaces_highlight = colors.pink,
+	spaces_highlight = colors.white,
 	spaces_icon = colors.grey,
 	spaces_background = colors.black,
 	spaces_border = colors.grey,

@@ -4,9 +4,9 @@
 > This config is specifically tailored for my needs and wants on MacOS. As of right now
 > I'm currently developing in Python, C++, and C. I tried to keep my NeoVim fairly 'light'.
 ### My Essentials:
-> - treessitter
+> - treesitter
 > - telescope
-> - lsp, linting, formatting
+> - lsp, linting, formatting; seperated
 > - autocompletion
 > - terminal integration (.zsh btw)
 > - markdown preview; for readme and notetaking

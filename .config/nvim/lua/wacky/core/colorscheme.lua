@@ -1,16 +1,18 @@
-local status, err = pcall(vim.cmd, "colorscheme bluloco")
-if not status then
-	print(err)
-	return
-end
+vim.cmd("set background=light")
+vim.cmd("colorscheme zenburned")
+vim.g.zenbones = {
+	transparent_background = true,
+	lightness = "bright",
+	darkness = "stark",
+}
 
-require("bluloco").setup({
-	style = "light", -- "auto" | "dark" | "light"
-	transparent = true,
-	italics = false,
-	terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
-	guicursor = true,
-})
+--require("bluloco").setup({
+--	style = "light", -- "auto" | "dark" | "light"
+--	transparent = true,
+--	italics = false,
+--	terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
+--	guicursor = true,
+--})
 
 -- require("tokyonight").setup({
 -- 	-- your configuration comes here

@@ -37,7 +37,7 @@ return packer.startup(function(use)
 	use("xiyaowong/transparent.nvim")
 
 	-- Color Scheme is here!!!
-	use({ "uloco/bluloco.nvim", requires = { "rktjmp/lush.nvim" } }) -- preferred colorscheme atm
+	use({ "zenbones-theme/zenbones.nvim", requires = { "rktjmp/lush.nvim" } }) -- preferred colorscheme atm
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -129,8 +129,15 @@ return packer.startup(function(use)
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
-
+	use({
+		"windwp/nvim-ts-autotag", -- autoclose tags
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	})
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 

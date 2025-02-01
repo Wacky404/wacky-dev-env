@@ -1,7 +1,7 @@
 {
     "savepath": "Documents/GitHub/worklogger/Output/",
     "backuppath": "Documents/worklogger/",
-    "fileformat": "csv",
+    "fileformat": "json",
     "loglvl": "Warning",
     "jobs": [
         {
@@ -47,6 +47,14 @@
                 {
                     "GridFast": "12345",
                     "Exemplar": "12345"
+                }
+            ]
+        },
+        {
+            "name": "WorkLogger",
+            "projects": [
+                {
+                    "Logging": "Configuring Logging Threading"
                 }
             ]
         }

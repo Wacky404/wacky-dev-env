@@ -16,6 +16,9 @@ require("formatter").setup({
 		latex = { require("formatter.filetypes.latex").latexindent },
 		markdown = { require("formatter.filetypes.markdown").prettier },
 		html = { require("formatter.filetypes.html").prettier },
+		css = { require("formatter.filetypes.css").prettier },
+		typescript = { require("formatter.filetypes.typescript").prettier },
+		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
 		lua = {
@@ -43,6 +46,22 @@ require("formatter").setup({
 					},
 					stdin = true,
 				}
+			end,
+		},
+		go = {
+			function()
+				local params = vim.lsp.util.make_range_params()
+				params.context = { only = { "source.organizeImports" } }
+				local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+				for cid, res in pairs(result or {}) do
+					for _, r in pairs(res.result or {}) do
+						if r.edit then
+							local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+							vim.lsp.util.apply_workspace_edit(r.edit, enc)
+						end
+					end
+				end
+				vim.lsp.buf.format({ asynce = false })
 			end,
 		},
 		-- Use the special "*" filetype for defining formatter configurations on
