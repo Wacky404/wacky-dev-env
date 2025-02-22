@@ -25,7 +25,7 @@ transparent=0x00000000
 options=(
     # square; other option
     style=round
-    width=10.0
+    width=5.0
     hidpi=off
     active_color=$orange_brown
     inactive_color=$grey

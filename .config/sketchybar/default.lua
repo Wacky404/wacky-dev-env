@@ -1,58 +1,72 @@
-local settings = require("settings")
-local colors = require("colors")
-local sbar = require("sketchybar")
+local settings = require("config.settings")
 
--- Equivalent to the --default domain
 sbar.default({
 	updates = "when_shown",
 	icon = {
 		font = {
-			family = settings.font.text,
-			style = settings.font.style_map["Bold"],
-			size = 14.0,
+			family = settings.fonts.text,
+			style = settings.fonts.styles.regular,
+			size = settings.dimensions.text.icon,
 		},
-		-- changed the applel logo & cpu
-		color = settings.apple_icon,
-		padding_left = settings.paddings,
-		padding_right = settings.paddings,
-		background = { image = { corner_radius = 9 } },
+		-- changed the apple logo & cpu
+		color = settings.colors.white,
+		padding_left = settings.dimensions.paddings.icon,
+		padding_right = settings.dimensions.paddings.icon,
 	},
 	label = {
 		font = {
-			family = settings.font.text,
-			style = settings.font.style_map["Semibold"],
-			size = 13.0,
+			family = settings.fonts.text,
+			style = settings.fonts.styles.regular,
+			size = settings.dimensions.text.label,
 		},
 		-- text color for widgets
-		color = colors.white,
-		padding_left = settings.paddings,
-		padding_right = settings.paddings,
+		color = settings.colors.white,
+		padding_left = settings.dimensions.paddings.label,
+		padding_right = settings.dimensions.paddings.label,
 	},
 	background = {
-		height = 28,
-		corner_radius = 9,
-		border_width = 2,
+		height = settings.dimensions.graphics.background.height,
+		corner_radius = settings.dimensions.graphics.background.corner_radius,
+		border_width = 0,
 		-- changes border color for widgets
-		border_color = settings.widget_borders,
+		-- border_color = settings.colors.widget_borders,
 		image = {
-			corner_radius = 9,
-			border_color = colors.grey,
-			border_width = 1,
+			corner_radius = settings.dimensions.graphics.background.corner_radius,
+			-- border_color = settings.colors.grey,
+			-- border_width = 1,
 		},
 	},
 	popup = {
+		y_offset = settings.dimensions.paddings.popup,
+		align = "center",
 		background = {
-			border_width = 2,
-			corner_radius = 9,
-			-- colors.popup.border
-			border_color = colors.popup.border,
-			-- colors.popup.bg
-			color = colors.popup.bg,
+			border_width = 0,
+			corner_radius = settings.dimensions.graphics.background.corner_radius,
+			color = settings.colors.popup.bg,
 			shadow = { drawing = true },
+			padding_left = settings.dimensions.paddings.icon,
+			padding_right = settings.dimensions.paddings.icon,
 		},
-		blur_radius = 50,
+		blur_radius = settings.dimensions.graphics.blur_radius,
 	},
-	padding_left = 5,
-	padding_right = 5,
+	slider = {
+		highlight_color = settings.colors.orange,
+		background = {
+			height = settings.dimens.graphics.slider.height,
+			corner_radius = settings.dimens.graphics.background.corner_radius,
+			color = settings.colors.slider.bg,
+			border_color = settings.colors.slider.border,
+			border_width = 1,
+		},
+		knob = {
+			font = {
+				family = settings.fonts.text,
+				style = settings.fonts.styles.regular,
+				size = 32,
+			},
+			string = settings.icons.text.slider.knob,
+			drawing = false,
+		},
+	},
 	scroll_texts = true,
 })

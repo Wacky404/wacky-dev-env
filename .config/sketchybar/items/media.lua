@@ -1,15 +1,15 @@
-local icons = require("icons")
-local colors = require("colors")
-local sbar = require("sketchybar")
+local colors = require("config.colors")
 
-local whitelist = { ["Spotify"] = true, ["Music"] = true, ["Sound Cloud"] = true }
+local whitelist = {
+	["Psst"] = true,
+}
 
 local media_cover = sbar.add("item", {
-	position = "right",
+	position = "left",
 	background = {
 		image = {
 			string = "media.artwork",
-			scale = 0.85,
+			scale = 0.80,
 		},
 		color = colors.transparent,
 	},
@@ -24,7 +24,7 @@ local media_cover = sbar.add("item", {
 })
 
 local media_artist = sbar.add("item", {
-	position = "right",
+	position = "left",
 	drawing = false,
 	padding_left = 3,
 	padding_right = 0,
@@ -34,13 +34,13 @@ local media_artist = sbar.add("item", {
 		width = 0,
 		font = { size = 9 },
 		color = colors.with_alpha(colors.white, 0.6),
-		max_chars = 18,
+		max_chars = 24,
 		y_offset = 6,
 	},
 })
 
 local media_title = sbar.add("item", {
-	position = "right",
+	position = "left",
 	drawing = false,
 	padding_left = 3,
 	padding_right = 0,
@@ -48,7 +48,7 @@ local media_title = sbar.add("item", {
 	label = {
 		font = { size = 11 },
 		width = 0,
-		max_chars = 16,
+		max_chars = 35,
 		y_offset = -5,
 	},
 })
