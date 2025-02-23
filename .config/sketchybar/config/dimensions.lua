@@ -11,7 +11,7 @@ local paddings <const> = {
 
 local graphics <const> = {
 	bar = {
-		height = 40,
+		height = 22.5,
 		offset = 12,
 	},
 	background = {

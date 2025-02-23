@@ -1,35 +1,40 @@
-local icons = require("icons")
-local colors = require("colors")
-local settings = require("settings")
-local sbar = require("sketchybar")
+local constants = require("constants")
+local settings = require("config.settings")
 
 -- Execute the event provider binary which provides the event "cpu_update" for
 -- the cpu load data, which is fired every 2.0 seconds.
 sbar.exec("killall cpu_load >/dev/null; $CONFIG_DIR/helpers/event_providers/cpu_load/bin/cpu_load cpu_update 2.0")
 
-local cpu = sbar.add("graph", "widgets.cpu", 42, {
+local cpu = sbar.add("graph", constants.items.CPU, 42, {
 	position = "right",
-	graph = { color = colors.blue },
+	graph = { color = settings.colors.blue },
 	background = {
-		height = 22,
+		height = 16,
 		color = { alpha = 0 },
 		border_color = { alpha = 0 },
 		drawing = true,
 	},
-	icon = { string = icons.cpu },
+	icon = { string = settings.icons.text.nerdfont.cpu },
 	label = {
 		string = "cpu ??%",
 		font = {
-			family = settings.font.numbers,
-			style = settings.font.style_map["Bold"],
-			size = 9.0,
+			family = settings.fonts.text,
+			style = settings.fonts.styles.regular,
+			size = settings.dimensions.text.label,
 		},
 		align = "right",
+		padding_left = settings.dimensions.paddings.label,
 		padding_right = 0,
-		width = 0,
-		y_offset = 4,
+		y_offset = 0,
 	},
-	padding_right = settings.paddings + 6,
+	padding_right = 0,
+})
+
+-- Background around the cpu item
+sbar.add("bracket", constants.items.CPU .. ".bracket", {
+	cpu.name,
+}, {
+	popup = { align = "center" },
 })
 
 cpu:subscribe("cpu_update", function(env)
@@ -37,14 +42,14 @@ cpu:subscribe("cpu_update", function(env)
 	local load = tonumber(env.total_load)
 	cpu:push({ load / 100. })
 
-	local color = colors.blue
+	local color = settings.colors.blue
 	if load > 30 then
 		if load < 60 then
-			color = colors.yellow
+			color = settings.colors.yellow
 		elseif load < 80 then
-			color = colors.orange
+			color = settings.colors.orange
 		else
-			color = colors.red
+			color = settings.colors.red
 		end
 	end
 
@@ -57,15 +62,3 @@ end)
 cpu:subscribe("mouse.clicked", function(env)
 	sbar.exec("open -a 'Activity Monitor'")
 end)
-
--- Background around the cpu item
-sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
-	-- changes color of background widget
-	background = { color = settings.cpu_background },
-})
-
--- Background around the cpu item
-sbar.add("item", "widgets.cpu.padding", {
-	position = "right",
-	width = settings.group_paddings,
-})

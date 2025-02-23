@@ -17,17 +17,10 @@ local currentWorkspaceWatcher = sbar.add("item", {
 -- copy "Icons" from the nerd fonts cheat sheet and replace icon and name accordingly below
 -- https://www.nerdfonts.com/cheat-sheet
 local spaceConfigs <const> = {
-	["1"] = { icon = "󱞁", name = "Notes" },
-	["2"] = { icon = "", name = "Terminal" },
-	["3"] = { icon = "󰖟", name = "Browser" },
-	["4"] = { icon = "", name = "AltBrowser" },
-	["5"] = { icon = "", name = "Remote" },
-	["6"] = { icon = "", name = "Database" },
-	["7"] = { icon = "󰙯", name = "Chat" },
-	["8"] = { icon = "", name = "Mail" },
-	["9"] = { icon = "", name = "Music" },
-	["10"] = { icon = "󰌾", name = "Secrets" },
-	["t"] = { icon = "", name = "Meeting" },
+	["1"] = { icon = "󱅝", name = "iTerm2" },
+	["2"] = { icon = "󰖟", name = "Firefox" },
+	["3"] = { icon = "󱞁", name = "Notes" },
+	["4"] = { icon = "󰌾", name = "Secrets" },
 }
 
 local function selectCurrentWorkspace(focusedWorkspaceName)
@@ -85,7 +78,7 @@ local function addWorkspaceItem(workspaceName)
 	end)
 
 	sbar.add("item", spaceName .. ".padding", {
-		width = settings.dimens.padding.label,
+		width = settings.dimensions.paddings.label,
 	})
 end
 

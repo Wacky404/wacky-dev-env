@@ -1,4 +1,4 @@
-local colors = require("config.colors")
+local settings = require("config.settings")
 
 local whitelist = {
 	["Psst"] = true,
@@ -11,7 +11,7 @@ local media_cover = sbar.add("item", {
 			string = "media.artwork",
 			scale = 0.80,
 		},
-		color = colors.transparent,
+		color = settings.colors.transparent,
 	},
 	label = { drawing = false },
 	icon = { drawing = false },
@@ -33,7 +33,7 @@ local media_artist = sbar.add("item", {
 	label = {
 		width = 0,
 		font = { size = 9 },
-		color = colors.with_alpha(colors.white, 0.6),
+		color = settings.colors.with_alpha(settings.colors.white, 0.6),
 		max_chars = 24,
 		y_offset = 6,
 	},
@@ -55,19 +55,19 @@ local media_title = sbar.add("item", {
 
 sbar.add("item", {
 	position = "popup." .. media_cover.name,
-	icon = { string = icons.media.back },
+	icon = { string = settings.icons.text.nerdfont.media.back },
 	label = { drawing = false },
 	click_script = "nowplaying-cli previous",
 })
 sbar.add("item", {
 	position = "popup." .. media_cover.name,
-	icon = { string = icons.media.play_pause },
+	icon = { string = settings.icons.text.nerdfont.media.play_pause },
 	label = { drawing = false },
 	click_script = "nowplaying-cli togglePlayPause",
 })
 sbar.add("item", {
 	position = "popup." .. media_cover.name,
-	icon = { string = icons.media.forward },
+	icon = { string = settings.icons.text.nerdfont.media.forward },
 	label = { drawing = false },
 	click_script = "nowplaying-cli next",
 })

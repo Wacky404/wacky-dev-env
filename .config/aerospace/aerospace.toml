@@ -118,7 +118,6 @@ automatically-unhide-macos-hidden-apps = true
     cmd-3 = 'workspace 3'
     cmd-4 = 'workspace 4'
     cmd-5 = 'workspace 5'
-    cmd-6 = 'workspace 6'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     ctrl-1 = 'move-node-to-workspace 1'
@@ -126,7 +125,6 @@ automatically-unhide-macos-hidden-apps = true
     ctrl-3 = 'move-node-to-workspace 3'
     ctrl-4 = 'move-node-to-workspace 4'
     ctrl-5 = 'move-node-to-workspace 5'
-    ctrl-6 = 'move-node-to-workspace 6'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     ctrl-tab = 'workspace-back-and-forth'
@@ -155,6 +153,14 @@ automatically-unhide-macos-hidden-apps = true
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+# setting up multiple monitors, very much NEEDED!
+[workspace-to-monitor-force-assignment]
+    1 = '^built-in retina display$'
+    2 = '^built-in retina display$'
+    3 = '^built-in retina display$'
+    4 = '^built-in retina display$'
+    5 = ['secondary', 'C27F390', '^built-in retina display$']
 
 # make sure these apps are in floating win
 [[on-window-detected]]

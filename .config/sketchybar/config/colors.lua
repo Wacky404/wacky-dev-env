@@ -30,6 +30,10 @@ local colors <const> = {
 	pink = Pink,
 	purple = Purple,
 	transparent = Transparent,
+	other_purple = 0xff302c45,
+	cyan = 0xff7bf2de,
+	dirty_white = 0xc8cad3f5,
+	dark_grey = 0xff2b2736,
 
 	bar = {
 		bg = 0xf02c2e34,
@@ -38,6 +42,10 @@ local colors <const> = {
 	popup = {
 		bg = 0xc02c2e34,
 		border = 0xff7f8490,
+	},
+	slider = {
+		bg = 0xf1151320,
+		border = 0xff2c2e34,
 	},
 	bg1 = 0xff363944,
 	bg2 = 0xff414550,

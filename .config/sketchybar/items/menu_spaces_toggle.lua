@@ -17,7 +17,7 @@ end
 local function addToggle()
 	local menuToggle = sbar.add("item", constants.items.MENU_TOGGLE, {
 		icon = {
-			string = settings.icons.text.switch.on,
+			string = settings.icons.text.nerdfont.switch.on,
 		},
 		label = {
 			width = 0,
@@ -30,7 +30,7 @@ local function addToggle()
 	})
 
 	sbar.add("item", constants.items.MENU_TOGGLE .. ".padding", {
-		width = settings.dimens.padding.label,
+		width = settings.dimensions.paddings.label,
 	})
 
 	menuToggle:subscribe("mouse.entered", function(env)

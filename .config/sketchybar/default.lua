@@ -52,8 +52,8 @@ sbar.default({
 	slider = {
 		highlight_color = settings.colors.orange,
 		background = {
-			height = settings.dimens.graphics.slider.height,
-			corner_radius = settings.dimens.graphics.background.corner_radius,
+			height = settings.dimensions.graphics.slider.height,
+			corner_radius = settings.dimensions.graphics.background.corner_radius,
 			color = settings.colors.slider.bg,
 			border_color = settings.colors.slider.border,
 			border_width = 1,
@@ -64,7 +64,7 @@ sbar.default({
 				style = settings.fonts.styles.regular,
 				size = 32,
 			},
-			string = settings.icons.text.slider.knob,
+			string = settings.icons.text.nerdfont.slider.knob,
 			drawing = false,
 		},
 	},

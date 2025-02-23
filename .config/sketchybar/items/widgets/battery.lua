@@ -1,6 +1,25 @@
-local icons = require("icons")
-local settings = require("settings")
-local sbar = require("sketchybar")
+local constants = require("constants")
+local settings = require("config.settings")
+
+local isCharging = false
+
+local battery = sbar.add("item", constants.items.battery, {
+	position = "right",
+	update_freq = 60,
+})
+
+local batteryPopup = sbar.add("item", {
+	position = "popup." .. battery.name,
+	width = "dynamic",
+	label = {
+		padding_right = settings.dimensions.paddings.label,
+		padding_left = settings.dimensions.paddings.label,
+	},
+	icon = {
+		padding_left = 0,
+		padding_right = 0,
+	},
+})
 
 function os.capture(cmd, raw)
 	local file = assert(io.popen(cmd, "r"))
@@ -18,43 +37,19 @@ function os.capture(cmd, raw)
 	return output
 end
 
-local battery = sbar.add("item", "widgets.battery", {
-	position = "right",
-	icon = {
-		font = {
-			style = settings.font.style_map["Regular"],
-			size = 19.0,
-		},
-	},
-	label = { font = { family = settings.font.numbers } },
-	update_freq = 180,
-	popup = { align = "center" },
-})
-
-local remaining_time = sbar.add("item", {
-	position = "popup." .. battery.name,
-	icon = {
-		string = "Time remaining:",
-		width = 100,
-		align = "left",
-	},
-	label = {
-		string = "??:??h",
-		width = 100,
-		align = "right",
-	},
-})
-
--- TODO: This is where the battery widget issue is occuring...
 local function battery_update()
-	Color = settings.batt_color_default
-
-	local batt_info = os.capture("pmset -g batt", false)
+	local color = settings.colors.green
 	local icon = "!"
 	local label = "?"
+	local lead = ""
 
+	local batt_info = os.capture("pmset -g batt", true)
 	if batt_info:find("AC Power") then
-		icon = icons.battery.charging
+		icon = settings.icons.text.nerdfont.battery.charging
+		local found, _, charge = batt_info:find("(%d+)%%")
+		if found then
+			label = charge .. "%"
+		end
 	else
 		local found, _, charge = batt_info:find("(%d+)%%")
 		if found then
@@ -62,32 +57,37 @@ local function battery_update()
 			label = charge .. "%"
 		end
 
-		if found and charge > 80 then
-			icon = icons.battery._100
-		elseif found and charge > 60 then
-			icon = icons.battery._75
-		elseif found and charge > 40 then
-			icon = icons.battery._50
-		elseif found and charge > 20 then
-			icon = icons.battery._25
-			Color = settings.batt_color_25
-		else
-			icon = icons.battery._0
-			Color = settings.batt_color_0
+		if found and charge < 10 then
+			lead = "0"
 		end
-	end
-    -- TODO: Add in charging percentage
-	local lead = ""
-	if label == "?" then
-		label = "W"
+
+		if found and charge > 80 then
+			icon = settings.icons.text.nerdfont.battery._100
+		elseif found and charge > 60 then
+			icon = settings.icons.text.nerdfont.battery._75
+		elseif found and charge > 40 then
+			icon = settings.icons.text.nerdfont.battery._50
+		elseif found and charge > 30 then
+			icon = settings.icons.text.nerdfont.battery._50
+			color = settings.colors.yellow
+		elseif found and charge > 20 then
+			icon = settings.icons.text.nerdfont.battery._25
+			color = settings.colors.orange
+		else
+			icon = settings.icons.text.nerdfont.battery._0
+			color = settings.colors.red
+		end
 	end
 
 	battery:set({
 		icon = {
 			string = icon,
-			color = Color,
+			color = color,
 		},
-		label = { string = lead .. label },
+		label = {
+			string = lead .. label,
+			padding_left = 0,
+		},
 	})
 end
 
@@ -95,23 +95,13 @@ battery:subscribe({ "routine", "power_source_change", "system_woke" }, battery_u
 
 battery:subscribe("mouse.clicked", function(env)
 	local drawing = battery:query().popup.drawing
+
 	battery:set({ popup = { drawing = "toggle" } })
 
 	if drawing == "off" then
-		sbar.exec("pmset -g batt", function(batt_info)
-			local found, _, remaining = batt_info:find(" (%d+:%d+) remaining")
-			local label = found and remaining .. "h" or "No estimate"
-			remaining_time:set({ label = label })
-		end)
+		local batteryInfo = os.capture("pmset -g batt", true)
+		local found, _, remaining = batteryInfo:find("(%d+:%d+) remaining")
+		local label = found and ("Time remaining: " .. remaining .. "h") or (isCharging and "Charging" or "No estimate")
+		batteryPopup:set({ label = label })
 	end
 end)
-
-sbar.add("bracket", "widgets.battery.bracket", { battery.name }, {
-	-- changes color of widget background
-	background = { color = settings.batt_background },
-})
-
-sbar.add("item", "widgets.battery.padding", {
-	position = "right",
-	width = settings.group_paddings,
-})

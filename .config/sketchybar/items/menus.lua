@@ -26,7 +26,7 @@ local function createPlaceholders()
 					style = index == 1 and settings.fonts.styles.bold or settings.fonts.styles.regular,
 				},
 			},
-			click_script = "$CONFIG_DIR/bridge/menus/bin/menus -s " .. index,
+			click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s " .. index,
 		})
 		menuItems[index] = menu
 	end
@@ -34,8 +34,8 @@ local function createPlaceholders()
 	sbar.add("bracket", { "/" .. constants.items.MENU .. "\\..*/" }, {
 		background = {
 			color = settings.colors.bg1,
-			padding_left = settings.dimens.padding.item,
-			padding_right = settings.dimens.padding.item,
+			padding_left = settings.dimensions.paddings.item,
+			padding_right = settings.dimensions.paddings.item,
 		},
 	})
 end
@@ -43,7 +43,7 @@ end
 local function updateMenus()
 	sbar.set("/" .. constants.items.MENU .. "\\..*/", { drawing = false })
 
-	sbar.exec("$CONFIG_DIR/bridge/menus/bin/menus -l", function(menus)
+	sbar.exec("$CONFIG_DIR/helpers/menus/bin/menus -l", function(menus)
 		local index = 1
 		for menu in string.gmatch(menus, "[^\r\n]+") do
 			if index < maxItems then

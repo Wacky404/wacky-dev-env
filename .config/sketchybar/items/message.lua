@@ -19,8 +19,8 @@ local messagePopup = sbar.add("item", {
 	position = "popup." .. message.name,
 	width = "dynamic",
 	label = {
-		padding_right = settings.dimens.padding.label,
-		padding_left = settings.dimens.padding.label,
+		padding_right = settings.dimensions.paddings.label,
+		padding_left = settings.dimensions.paddings.label,
 	},
 	icon = {
 		padding_left = 0,
