@@ -6,6 +6,15 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
+# notify Sketchybar about events
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_changed FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+on-focus-changed = ['exec-and-forget /bin/bash -c /opt/homebrew/bin/sketchybar --trigger front_app_switched',
+    'exec-and-forget sketchybar --trigger update_windows'
+]
+
 # Start AeroSpace at login
 start-at-login = true
 
@@ -37,6 +46,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
+
+# this is needed to inherit the enviroment vars from aerospace.app; homewbrew install
+[exec]
+    inherit-env-vars = true
+[exec.env-vars]
+    PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping

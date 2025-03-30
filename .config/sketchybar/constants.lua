@@ -1,9 +1,13 @@
 local events <const> = {
 	AEROSPACE_WORKSPACE_CHANGED = "aerospace_workspace_changed",
+	AEROSPACE_WINDOWS_CHANGED = "aerospace_windows_changed",
+	SKETCHY_WINDOWS_CHANGED = "space_windows_changed",
 	AEROSPACE_SWITCH = "aerospace_switch",
 	SWAP_MENU_AND_SPACES = "swap_menu_and_spaces",
 	FRONT_APP_SWITCHED = "front_app_switched",
 	UPDATE_WINDOWS = "update_windows",
+	UPDATE_MOVED_WINDOWS = "update_moved_windows",
+	USER_TRIGGER_FRONTAPP = "manual_trigger_front_app",
 	SEND_MESSAGE = "send_message",
 	HIDE_MESSAGE = "hide_message",
 }

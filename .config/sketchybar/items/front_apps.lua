@@ -1,6 +1,8 @@
 local constants = require("constants")
 local settings = require("config.settings")
 
+M = {}
+
 local frontApps = {}
 
 sbar.add("bracket", constants.items.FRONT_APPS, {}, { position = "left" })
@@ -11,6 +13,7 @@ local frontAppWatcher = sbar.add("item", {
 })
 
 local function selectFocusedWindow(frontAppName)
+	M["frontapp"] = frontAppName
 	for appName, app in pairs(frontApps) do
 		local isSelected = appName == frontAppName
 		local color = isSelected and settings.colors.orange or settings.colors.white
@@ -67,3 +70,5 @@ frontAppWatcher:subscribe(constants.events.UPDATE_WINDOWS, function()
 end)
 
 getWindows()
+
+return M
