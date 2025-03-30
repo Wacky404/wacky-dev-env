@@ -24,16 +24,16 @@ mason.setup({
 mason_lspconfig.setup({
 	-- list of servers for mason to install
 	ensure_installed = {
-		"lua_ls",
-		"clangd",
+		-- "lua_ls",
+		-- "clangd",
 		"arduino_language_server",
-		"ltex",
+		-- "ltex",
 		"jedi_language_server",
 		"html",
 		"tailwindcss",
 		"biome",
-		"htmx",
-		"gopls",
+		-- "htmx",
+		-- "gopls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed

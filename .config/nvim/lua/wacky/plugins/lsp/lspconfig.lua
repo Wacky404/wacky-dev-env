@@ -45,14 +45,14 @@ for type, icon in pairs(signs) do
 end
 
 local servers = {
-	"clangd",
+	-- "clangd",
 	"arduino_language_server",
-	"ltex",
+	-- "ltex",
 	"jedi_language_server",
 	"ts_ls",
 	"tailwindcss",
-	"metals",
-	"htmx",
+	-- "metals",
+	-- "htmx",
 }
 
 for _, lsp in pairs(servers) do
