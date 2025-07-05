@@ -1,19 +1,26 @@
-# Wacky's Dev Environment 💻
-> In case of a nuclear strike on a state that no one cares about, my config shall live on.
-### ✨ If your looking at this, try to garner some inspiration ✨
-> This config is specifically tailored for my needs and wants on MacOS. As of right now
-> I'm currently developing in Python, C++, and C. I tried to keep my NeoVim fairly 'light'.
+# Wacky's Dev Environment - MacOS
+
+why are you looking at this, its terrible...
+
+### Less is More
+
+> The terminal has everything you already need, you just don't know the command yet.
+> So with that being said, less is more. The terminal is the central focus. Tmux and Neovim
+> are the supporting characters.
+
+### Languages
+
+Python (first love), Go, Typescript (i have to), Lua, Bash, C, C++(first language)
+
 ### My Essentials:
+
+> - tmux & neovim for coding
 > - treesitter
 > - telescope
 > - lsp, linting, formatting; seperated
 > - autocompletion
-> - terminal integration (.zsh btw)
+> - terminal integrations (.zsh btw)
 > - markdown preview; for readme and notetaking
 > - latexmk
 
-🛑 If you want to see my keybindings and current color scheme 🛑
-> navigate to keymaps.lua
->
-> navigate to colorscheme.lua
-> *some of my keybindings are also included in the setup of the plugin
+🛑 If you want to see my keybindings and current color scheme, its in nvim/core folder🛑
