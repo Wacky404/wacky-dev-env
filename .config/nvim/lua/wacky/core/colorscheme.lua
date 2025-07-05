@@ -1,11 +1,42 @@
-vim.cmd("set background=light")
-vim.cmd("colorscheme zenburned")
-vim.g.zenbones = {
-	transparent_background = true,
-	lightness = "bright",
-	darkness = "stark",
-}
+require("kanso").setup({
+	compile = false, -- enable compiling the colorscheme
+	undercurl = true, -- enable undercurls
+	commentStyle = { italic = true },
+	functionStyle = {},
+	keywordStyle = { italic = true },
+	statementStyle = {},
+	typeStyle = {},
+	disableItalics = false,
+	transparent = true, -- do not set background color
+	dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+	terminalColors = false, -- define vim.g.terminal_color_{0,17}
+	colors = { -- add/modify theme and palette colors
+		palette = {},
+		theme = { zen = {}, pearl = {}, ink = {}, all = {} },
+	},
+	overrides = function(colors) -- add/modify highlights
+		return {}
+	end,
+	theme = "zen", -- Load "zen" theme
+	background = { -- map the value of 'background' option to a theme
+		dark = "zen", -- try "ink" !
+		light = "pearl",
+	},
+})
 
+-- setup must be called before loading
+vim.cmd("colorscheme kanso")
+
+-- This is for the Zenbone Theme
+-- vim.cmd("set background=light")
+-- vim.cmd("colorscheme zenburned")
+-- vim.g.zenbones = {
+-- 	transparent_background = true,
+-- 	lightness = "bright",
+-- 	darkness = "stark",
+-- }
+
+-- This is for the Bluloco Theme
 --require("bluloco").setup({
 --	style = "light", -- "auto" | "dark" | "light"
 --	transparent = true,
@@ -14,6 +45,7 @@ vim.g.zenbones = {
 --	guicursor = true,
 --})
 
+-- This is for the tokyonight Theme; one of my favorites
 -- require("tokyonight").setup({
 -- 	-- your configuration comes here
 -- 	-- or leave it empty to use the default settings

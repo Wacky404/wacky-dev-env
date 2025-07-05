@@ -57,6 +57,15 @@
                     "Logging": "Configuring Logging Threading"
                 }
             ]
+        },
+        {
+            "name": "BTYTechnology",
+            "projects": [
+                {
+                    "Website": "Building the company website",
+                    "BPs": "Logging the business processes for repackaging",
+                }
+            ]
         }
     ]
 }

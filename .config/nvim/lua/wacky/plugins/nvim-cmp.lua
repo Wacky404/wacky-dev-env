@@ -1,6 +1,6 @@
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then
-    print("cmp failed...")
+	print("cmp failed...")
 	return
 end
 
@@ -54,9 +54,9 @@ cmp.setup({
 })
 
 -- setup for vim-dadbod
-cmp.setup.filetype({ "sql" }, {
-	sources = {
-		{ name = "vim-dadbod-completion" },
-		{ name = "buffer" },
-	},
-})
+--cmp.setup.filetype({ "sql" }, {
+--	sources = {
+--		{ name = "vim-dadbod-completion" },
+--		{ name = "buffer" },
+--	},
+--})

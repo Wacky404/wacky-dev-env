@@ -37,24 +37,21 @@ return packer.startup(function(use)
 	use("xiyaowong/transparent.nvim")
 
 	-- Color Scheme is here!!!
-	use({ "zenbones-theme/zenbones.nvim", requires = { "rktjmp/lush.nvim" } }) -- preferred colorscheme atm
-
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+	use("webhooked/kanso.nvim") -- preferred colorscheme atm
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
-	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
 	use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
-	-- commenting with gc
-	use("numToStr/Comment.nvim")
-
 	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
-
-	-- vs-code like icons
-	use("nvim-tree/nvim-web-devicons")
+	use({ "stevearc/oil.nvim" })
+	-- extension(s) to oil
+	use({
+		"JezerM/oil-lsp-diagnostics.nvim",
+		"nvim-tree/nvim-web-devicons", -- actually important
+		requires = { "stevearc/oil.nvim" },
+	})
 
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
@@ -85,13 +82,24 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		requires = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	}) -- enhanced lsp uis
+		"nvimdev/lspsaga.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("lspsaga").setup({
+				-- keybinds for navigation in lspsaga window
+				scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
+				-- use enter to open file with definition preview
+				definition = {
+					edit = "<CR>",
+				},
+				ui = {
+					colors = {
+						normal_bg = "#022746",
+					},
+				},
+			})
+		end,
+	})
 
 	-- vs-code like icons for autocompletion
 	use("onsails/lspkind.nvim")
@@ -109,22 +117,6 @@ return packer.startup(function(use)
 	use({
 		"kristijanhusak/vim-dadbod-ui",
 		requires = { "tpope/vim-dadbod" },
-		dependencies = {
-			{
-				"kristijanhusak/vim-dadbod-completion",
-				ft = { "sql" },
-				cmd = {
-					"DBUI",
-					"DBUIToggle",
-					"DBUIAddConnection",
-					"DBUIFindBuffer",
-				},
-				config = function()
-					-- place my small config changes here
-					vim.g.db_ui_use_nerd_fonts = 1
-				end,
-			},
-		},
 	})
 
 	-- auto closing
