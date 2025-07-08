@@ -26,11 +26,18 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
+-- technically plugin keybinding; but essential
+keymap.set({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
+keymap.set({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")
+keymap.set({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
+keymap.set({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
+keymap.set({ "n", "t" }, "<C-p>", "<CMD>NavigatorPrevious<CR>")
+
 -- open diagnostics
 keymap.set("n", "<leader>da", ":lua vim.diagnostic.open_float()<CR>") -- open diagnostic
 
 -- terminal
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
 -- toggle-terminal
 keymap.set("n", "<leader>tt", ":ToggleTerm dir=git_dir<CR>")
@@ -49,7 +56,6 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- oil.nvim
-keymap.set("n", "<leader>e", ":Oil --float<CR>") -- toggle file explorer
 keymap.set("n", "<leader>e", function()
 	require("Oil").toggle_float()
 end) -- toggle file explorer
