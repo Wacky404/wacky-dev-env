@@ -1,4 +1,5 @@
 Black = 0xff181819
+Deep_Black = 000000
 White = 0xffe2e2e3
 Red = 0xfffc5d7c
 Blood = 0xFF8A0303
@@ -44,10 +45,11 @@ local colors <const> = {
 		border = 0xff7f8490,
 	},
 	slider = {
-		bg = 0xf1151320,
+		bg = Black,
 		border = 0xff2c2e34,
 	},
-	bg1 = 0xff363944,
+	---bg1 = 0xff363944,
+	bg1 = Deep_Black,
 	bg2 = 0xff414550,
 
 	with_alpha = function(color, alpha)
@@ -71,7 +73,7 @@ local colors <const> = {
 	-- wifi widget
 	wifi_background = Black,
 	-- apple.lua
-	apple_icon = White,
+	apple_icon = Green,
 	apple_background = Black,
 	apple_border = Black,
 	-- calendar.lua
@@ -79,7 +81,7 @@ local colors <const> = {
 	calendar_border = Black,
 	-- spaces.lua
 	spaces_highlight = White,
-	spaces_icon = Grey,
+	spaces_icon = Deep_Black,
 	spaces_background = Black,
 	spaces_border = Grey,
 	spaces_selected = White,

@@ -16,7 +16,7 @@ local function selectFocusedWindow(frontAppName)
 	M["frontapp"] = frontAppName
 	for appName, app in pairs(frontApps) do
 		local isSelected = appName == frontAppName
-		local color = isSelected and settings.colors.orange or settings.colors.white
+		local color = isSelected and settings.colors.green or settings.colors.white
 		app:set({
 			label = { color = color },
 			icon = { color = color },

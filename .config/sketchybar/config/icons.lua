@@ -93,6 +93,7 @@ local apps <const> = {
 	["Chromium"] = "\u{e743}", -- Chromium icon (Devicons)
 	["Google Chrome"] = "\u{e743}", -- Chrome icon (Devicons)
 	["Google Chrome Canary"] = "\u{e743}", -- Same as above
+	["Zen Browser"] = "\u{f0eb}", -- Generic browser icon
 	["Grammarly Editor"] = "\u{f044}", -- Edit icon (Font Awesome)
 	["Home Assistant"] = "\u{f015}", -- Home icon (Font Awesome)
 	["Hyper"] = "\u{f120}", -- Terminal icon (Font Awesome)

@@ -36,9 +36,6 @@ return packer.startup(function(use)
 	-- transparent background
 	use("xiyaowong/transparent.nvim")
 
-	-- Color Scheme is here!!!
-	use("webhooked/kanso.nvim") -- preferred colorscheme atm
-
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
 	-- don't take this out; allows for pane navigation on splits
@@ -62,7 +59,7 @@ return packer.startup(function(use)
 	})
 
 	-- statusline
-	use("nvim-lualine/lualine.nvim")
+	use({ "nvim-lualine/lualine.nvim" })
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance

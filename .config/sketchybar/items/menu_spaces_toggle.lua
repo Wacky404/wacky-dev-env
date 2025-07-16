@@ -21,11 +21,11 @@ local function addToggle()
 		},
 		label = {
 			width = 0,
-			color = settings.colors.bg1,
+			color = settings.colors.white,
 			string = "Spaces",
 		},
 		background = {
-			color = settings.colors.with_alpha(settings.colors.dirty_white, 0.0),
+			color = settings.colors.with_alpha(settings.colors.dark_grey, 0.0),
 		},
 	})
 
@@ -40,7 +40,7 @@ local function addToggle()
 					color = { alpha = 1.0 },
 					border_color = { alpha = 0.5 },
 				},
-				icon = { color = settings.colors.bg1 },
+				icon = { color = settings.colors.white },
 				label = { width = "dynamic" },
 			})
 		end)

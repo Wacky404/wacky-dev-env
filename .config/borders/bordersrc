@@ -10,6 +10,7 @@ white=0xffe2e2e3
 red=0xfffc5d7c
 blood=0xFF8A0303
 green=0xff9ed072
+ligh_green=0xff9ef4a9
 blue=0xff76cce0
 cog_blue=0xff6a97b8
 yellow=0xffe7c664
@@ -27,7 +28,7 @@ options=(
     style=round
     width=5.0
     hidpi=off
-    active_color=$orange_brown
+    active_color=$ligh_green
     inactive_color=$grey
 )
 borders "${options[@]}"
