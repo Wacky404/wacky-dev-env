@@ -36,6 +36,12 @@ return packer.startup(function(use)
 	-- transparent background
 	use("xiyaowong/transparent.nvim")
 
+	-- colorscheme
+	use({
+		"zenbones-theme/zenbones.nvim",
+		requires = { "rktjmp/lush.nvim" }, -- needed for extended colors
+	})
+
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
 	-- don't take this out; allows for pane navigation on splits
@@ -118,11 +124,12 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- dadbod for Databases
-	use({
+	-- dadbod for Databases; not using for now
+	--[[use({
 		"kristijanhusak/vim-dadbod-ui",
 		requires = { "tpope/vim-dadbod" },
 	})
+    --]]
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

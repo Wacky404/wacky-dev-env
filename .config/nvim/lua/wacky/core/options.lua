@@ -20,6 +20,9 @@ opt.smartcase = true
 -- cursor line
 opt.cursorline = true
 
+-- command line
+opt.cmdheight = 0
+
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"

@@ -1,5 +1,8 @@
+-- by default the background is set to dark
+vim.cmd("set background=dark")
+
 -- setup must be called before loading
-vim.cmd("colorscheme ascetic")
+vim.cmd.colorscheme("nordbones")
 
 -- This is for the Zenbone Theme
 -- vim.cmd("set background=light")
