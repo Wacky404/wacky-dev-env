@@ -1,3 +1,5 @@
+-- for some reason this only works when I explicitly add to path
+vim.env.PATH = vim.env.PATH .. ":/home/wacky/.cargo/bin"
 require("wacky.plugins-setup")
 require("wacky.core.options")
 require("wacky.core.keymaps")
