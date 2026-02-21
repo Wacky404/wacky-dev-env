@@ -111,6 +111,8 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+	-- spec for jaclang lsp
+	use({ "Jaseci-Labs/jac-vim" })
 
 	-- vs-code like icons for autocompletion
 	use("onsails/lspkind.nvim")
@@ -182,6 +184,19 @@ return packer.startup(function(use)
 			"nvim-neotest/nvim-nio",
 		},
 	})
+
+	-- presenting in nvim
+	use({
+		"sotte/presenting.nvim",
+		cmd = { "Presenting" },
+		config = function()
+			require("presenting").setup({
+				-- fill in your options here
+				-- see :help Presenting.config
+			})
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

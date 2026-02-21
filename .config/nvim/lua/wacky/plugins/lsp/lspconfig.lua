@@ -5,6 +5,11 @@ if not cmp_nvim_lsp_status then
 end
 
 -- for sameness
+local lspconfig = require("lspconfig")
+local root_pattern = lspconfig.util.root_pattern()
+-- hopefully this works; this works don't touch unless you want
+-- break everything. You need to change the lspconfig var name
+-- too lazy
 local lspconfig = vim.lsp
 local keymap = vim.keymap
 
@@ -55,6 +60,15 @@ lspconfig.config("gopls", {
 	capabilities = capabilities,
 })
 
+lspconfig.config("jac_ls", {
+	cmd = { "jac", "lsp" },
+	filetypes = { "jac" },
+	root_dir = root_pattern(".git", "jac-env"),
+	single_file_support = true,
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 lspconfig.config("lua_ls", {
 	cmd = { "lua-language-server", "--force-accept-workspace" },
 	filetypes = { "lua" },
@@ -67,12 +81,13 @@ lspconfig.config("lua_ls", {
 			diagnostics = {
 				globals = { "vim" },
 			},
-			--workspace = {
-			--	library = {
-			--		-- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-			--		-- [vim.fn.stdpath("config") .. "/lua"] = true,
-			--	},
-			--},
+			workspace = {
+				library = {
+					vim.fn.expand("~/.local/share/lua-ls-addons/openresty"),
+					-- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					-- [vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
 		},
 	},
 	on_attach = on_attach,
@@ -89,6 +104,7 @@ local servers = {
 	"tailwindcss",
 	"metals",
 	"htmx",
+	"jac_ls",
 }
 
 for _, server in pairs(servers) do
@@ -111,6 +127,7 @@ local all_servers = {
 	"html",
 	"gopls",
 	"lua_ls",
+	"jac_ls",
 }
 
 for _, server in pairs(all_servers) do

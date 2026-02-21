@@ -64,6 +64,22 @@ require("formatter").setup({
 				vim.lsp.buf.format({ asynce = false })
 			end,
 		},
+		["jac"] = {
+			function()
+				if util.get_current_buffer_file_name() == "special.jac" then
+					return nil
+				end
+
+				return {
+					exe = "sh",
+					args = {
+						"-c",
+						"TMPJAC=/tmp/jacfmt.$RANDOM.jac && cat > $TMPJAC && jac format -s --no-lintfix $TMPJAC && rm -f $TMPJAC",
+					},
+					stdin = true,
+				}
+			end,
+		},
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {
@@ -80,4 +96,8 @@ augroup("__formatter__", { clear = true })
 autocmd("BufWritePost", {
 	group = "__formatter__",
 	command = ":FormatWrite",
+})
+autocmd("FileChangedShellPost", {
+	group = "__formatter__",
+	command = "edit!",
 })
